@@ -1,13 +1,171 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	margin: 0;
+	box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.gba {
+	background-image: url("./images/GameBoy.svg");
+	background-repeat: no-repeat;
+	background-size: 82%;
+	background-position: center;
+}
+
+.tile {
+	background-image: url("./images/checker.svg");
+	background-size: 60%;
+	background-position: center;
+	background-blend-mode: multiply;
+	transform: rotate3d(0, 1, 0, 180deg);
+	transition: transform 400ms linear;
+}
+.endtile {
+	-webkit-text-stroke-width: 0.05em;
+	-webkit-text-stroke-color: black;
+}
+
+.custom-grid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+}
+
+.end-11 {
+	grid-column: 6/6;
+	grid-row: 1/1;
+}
+.end-12 {
+	grid-column: 6/6;
+	grid-row: 2/2;
+}
+.end-13 {
+	grid-column: 6/6;
+	grid-row: 3/3;
+}
+.end-14 {
+	grid-column: 6/6;
+	grid-row: 4/4;
+}
+.end-15 {
+	grid-column: 6/6;
+	grid-row: 5/5;
+}
+.end-21 {
+	grid-column: 1/1;
+	grid-row: 6/6;
+}
+.end-22 {
+	grid-column: 2/2;
+	grid-row: 6/6;
+}
+.end-23 {
+	grid-column: 3/3;
+	grid-row: 6/6;
+}
+.end-24 {
+	grid-column: 4/4;
+	grid-row: 6/6;
+}
+.end-25 {
+	grid-column: 5/5;
+	grid-row: 6/6;
+}
+
+@keyframes slide {
+	from {
+		background-position: center bottom;
+	}
+	to {
+		background-position: center top;
+	}
+}
+
+@keyframes colorshift {
+	0% {
+		filter: brightness(200%);
+	}
+	100% {
+		filter: brightness(100%);
+	}
+}
+
+.flipped {
+	transform: rotate3d(0, 1, 0, 0deg);
+	background-blend-mode: unset;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.flipped.one {
+	background-image: url("./images/one.svg");
+}
+.flipped.two {
+	background-image: url("./images/two.svg");
+}
+.flipped.three {
+	background-image: url("./images/three.svg");
+}
+.flipped.bomb {
+	background-image: url("./images/bomb.svg");
+}
+
+.bombImg {
+	background-image: url("./images/bomb.svg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.lose {
+	background-color: #f25757 !important;
+}
+.win {
+	/* animation: colorshift 2s linear infinite; */
+}
+
+.lock {
+	background-image: url("./images/lock.svg");
+	background-repeat: no-repeat;
+	background-size: 60%;
+	background-position: center;
+}
+
+.lock.locked {
+	border-color: white;
+}
+.tile.locked {
+	background-image: url("./images/lock.svg"), url("./images/checker.svg");
+	background-blend-mode: normal, multiply;
+	background-repeat: no-repeat, repeat;
+	background-color: grey !important;
+}
+
+.retro {
+	position: relative;
+	filter: grayscale(20%);
+}
+
+.retro::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	pointer-events: none;
+	background: linear-gradient(
+			rgba(18, 16, 16, 0) 50%,
+			rgba(4, 46, 13, 0.25) 50%
+		),
+		linear-gradient(
+			90deg,
+			rgba(255, 0, 0, 0.06),
+			rgba(0, 255, 0, 0.02),
+			rgba(0, 0, 255, 0.06)
+		);
+	z-index: 2;
+	background-size: 100% 4px, 6px 100%;
+	animation: slide 200s linear infinite;
 }
