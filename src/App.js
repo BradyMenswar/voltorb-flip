@@ -7,19 +7,16 @@ function App() {
 	}
 
 	return (
-		<div className="flex flex-col items-center w-screen h-screen bg-stone-950">
-			<button
-				onClick={handleRetro}
-				className="absolute self-center px-4 py-2 bg-blue-100 rounded right-10"
-			>
-				Toggle Retro Mode
-			</button>
-
-			<div className="flex flex-col items-center pt-[9%] w-full h-full gba">
-				<div className="h-[75%] p-4 bg-stone-950 w-[35%]">
+		<div className="flex flex-col items-center w-screen overflow-hidden app ">
+			<div className="relative flex flex-col items-center w-full max-w-[1400px]  gba">
+				<button
+					onClick={handleRetro}
+					className="absolute self-center w-[7%] h-[10%] left-[80%] top-[41%] rounded-full"
+				></button>
+				<div className="p-2 bg-black board h-fit">
 					<div
 						id="screen"
-						className="flex justify-center h-full p-4 bg-stone-900 "
+						className="flex justify-center w-full min-w-[250px] aspect-square p-[2%] bg-stone-900 "
 					>
 						<Board></Board>
 					</div>

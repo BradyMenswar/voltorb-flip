@@ -17,14 +17,13 @@ export default function EndTile(props) {
 			style={{ backgroundColor: props.color }}
 			className={
 				props.spot +
-				`${loseClass} ${winClass} flex flex-col gap-1 pointer-events-none select-none items-center justify-center text-stone-100 font-bold text-xl h-[100%] aspect-square border-[0.3rem] rounded border-stone-950 endtile`
+				`${loseClass} ${winClass} p-1 flex flex-col text-[100%] pointer-events-none select-none items-center justify-around text-stone-100 font-bold h-full w-full border-[0.2rem] rounded border-stone-950 endtile`
 			}
 		>
-			<h3>{sum}</h3>
-			<div className="w-[70%] h-[1px] bg-white"></div>
-			<div className="flex items-center gap-1">
-				<div className="w-6 h-6 bombImg"></div>
-				<h3>{bombs}</h3>
+			<h3 className="leading-1">{sum}</h3>
+			<div className="flex items-center justify-center w-full h-full gap-1">
+				<div className="w-full h-full bombImg"></div>
+				<h3 className="w-full">{bombs}</h3>
 			</div>
 		</div>
 	);

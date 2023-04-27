@@ -6,7 +6,7 @@ export default function Lock(props) {
 	return (
 		<div
 			style={{ backgroundColor: props.color }}
-			className={`${winClass} ${loseClass} ${lockedClass} lock border-stone-950 h-[100%] aspect-square border-[0.3rem] rounded`}
+			className={`${winClass} ${loseClass} ${lockedClass} lock border-stone-950 border-[0.2rem] rounded`}
 			onClick={props.handleClick}
 		></div>
 	);

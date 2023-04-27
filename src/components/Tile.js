@@ -33,7 +33,7 @@ export default function Tile(props) {
 	return (
 		<div
 			style={{ backgroundColor: props.color }}
-			className={`${winClass} ${loseClass} ${lockedClass} ${valueClass} ${flippedClass} tile h-[100%] aspect-square border-[0.3rem] rounded border-stone-950`}
+			className={`${winClass} ${loseClass} ${lockedClass} ${valueClass} ${flippedClass} tile  border-[0.2rem] rounded border-stone-950`}
 			onClick={handleClick}
 		></div>
 	);

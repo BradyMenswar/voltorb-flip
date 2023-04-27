@@ -7,11 +7,40 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-color: black;
+}
+
 .gba {
 	background-image: url("./images/GameBoy.svg");
 	background-repeat: no-repeat;
-	background-size: 82%;
+	background-size: 100%;
 	background-position: center;
+	aspect-ratio: 3/2;
+	min-width: 400px;
+}
+.board {
+	min-width: 270px;
+	width: 35%;
+	position: absolute;
+	top: 22%;
+}
+
+@media screen and (max-width: 768px) {
+	.gba {
+		background-image: url("./images/GameBoyColor.svg");
+		background-repeat: no-repeat;
+		background-size: 90%;
+		background-position: center 10px;
+		aspect-ratio: 1/3;
+	}
+	.board {
+		width: 60%;
+		top: 10%;
+	}
+	.app {
+		height: 100vh;
+	}
 }
 
 .tile {
@@ -30,7 +59,7 @@
 .custom-grid {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(6, 1fr);
+	grid-auto-rows: minmax(20px, auto);
 }
 
 .end-11 {
@@ -115,6 +144,7 @@
 .bombImg {
 	background-image: url("./images/bomb.svg");
 	background-size: contain;
+	background-position: center;
 	background-repeat: no-repeat;
 }
 .lose {
@@ -122,6 +152,7 @@
 }
 .win {
 	/* animation: colorshift 2s linear infinite; */
+	background-color: #00ff00 !important;
 }
 
 .lock {
@@ -139,11 +170,6 @@
 	background-blend-mode: normal, multiply;
 	background-repeat: no-repeat, repeat;
 	background-color: grey !important;
-}
-
-.retro {
-	position: relative;
-	filter: grayscale(20%);
 }
 
 .retro::before {
